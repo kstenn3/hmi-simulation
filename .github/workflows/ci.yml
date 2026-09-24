@@ -5,10 +5,12 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:
 
 env:
   DOTNET_VERSION: '10.0.x'
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  WORKING_DIRECTORY: HmiSim
 
 jobs:
   build:
@@ -24,10 +26,10 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ${{ env.WORKING_DIRECTORY }}
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build --no-restore --configuration Release ${{ env.WORKING_DIRECTORY }}
 
       - name: Test
-        run: dotnet test --no-build --configuration Release
+        run: dotnet test --no-build --configuration Release ${{ env.WORKING_DIRECTORY }}
