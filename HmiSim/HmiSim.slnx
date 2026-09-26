@@ -1,3 +1,11 @@
 <Solution>
-  <Project Path="HmiSim.App/HmiSim.App.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Fleet.Core/Fleet.Core.csproj" />
+    <Project Path="src/HmiSim.App/HmiSim.App.csproj" />
+    <Project Path="src/Mission.Planning/Mission.Planning.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Fleet.Core.Tests/Fleet.Core.Tests.csproj" />
+    <Project Path="tests/Mission.Planning.Tests/Mission.Planning.Tests.csproj" />
+  </Folder>
 </Solution>
